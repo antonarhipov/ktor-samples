@@ -1,6 +1,4 @@
 
-package com.hadihariri
-
 import io.ktor.application.*
 import io.ktor.html.*
 import io.ktor.http.*
@@ -43,12 +41,12 @@ fun Application.post() {
             val multipart = call.receiveMultipart()
             call.respondTextWriter {
                 if (!call.request.isMultipart()) {
-                    appendln("Not a multipart request")
+                    appendLine("Not a multipart request")
                 } else {
                     multipart.forEachPart { part ->
                         when (part) {
-                            is PartData.FormItem -> appendln("Form field: $part = ${part.value}")
-                            is PartData.FileItem -> appendln("File field: $part -> ${part.originalFileName} of ${part.contentType}")
+                            is PartData.FormItem -> appendLine("Form field: $part = ${part.value}")
+                            is PartData.FileItem -> appendLine("File field: $part -> ${part.originalFileName} of ${part.contentType}")
                         }
                         part.dispose()
                     }

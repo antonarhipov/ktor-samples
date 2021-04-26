@@ -1,6 +1,4 @@
 
-package com.hadihariri
-
 import io.ktor.application.*
 import io.ktor.html.*
 import io.ktor.routing.*
